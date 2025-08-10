@@ -39,42 +39,29 @@ Clone o repositório:
 ```bash
 git clone https://github.com/rodrigodemarque/hortifruti-frontend.git
 cd hortifruti-frontend
+
 Instale as dependências:
 
-bash
-Copiar
-Editar
 npm install
+
 Como executar
 Para rodar o servidor de desenvolvimento e abrir no navegador:
 
-bash
-Copiar
-Editar
 ng serve
 Acesse em: http://localhost:4200
 
 ou rode direto e abra o navegador:
 
-bash
-Copiar
-Editar
 ng serve -o
 O servidor ficará monitorando as alterações e recarregará automaticamente.
 
 Build para produção
 Para gerar uma build otimizada para produção:
 
-bash
-Copiar
-Editar
 ng build --configuration production
 Os arquivos compilados ficarão na pasta dist/hortifruti-frontend.
 
 Estrutura do Projeto
-plaintext
-Copiar
-Editar
 src/
 ├── app/             # Componentes, serviços, módulos 
 ├── assets/          # Imagens, estilos, ícones 
@@ -86,13 +73,11 @@ Configure o arquivo src/environments/environment.ts para o ambiente de desenvolv
 
 Exemplo:
 
-typescript
-Copiar
-Editar
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:5000/api'  // URL da WebAPI-HortiFruti
 };
+
 Contribuição
 Contribuições são bem-vindas! Para contribuir:
 
@@ -100,22 +85,16 @@ Faça um fork do projeto
 
 Crie sua branch feature:
 
-bash
-Copiar
-Editar
 git checkout -b minha-feature
+
 Faça commit das suas alterações:
 
-bash
-Copiar
-Editar
 git commit -m 'Minha feature'
+
 Envie para o repositório remoto:
 
-bash
-Copiar
-Editar
 git push origin minha-feature
+
 Abra um Pull Request
 
 Licença
