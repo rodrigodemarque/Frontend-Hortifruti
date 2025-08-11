@@ -19,6 +19,7 @@ export class FrutaEdit {
   private readonly activatedRoute = inject(ActivatedRoute);
 
   fruta: FrutaModel = {Id: 0, Nome: '', DataVenc: new Date()};
+  dataVencFormatada: string = '';
 
   constructor(){
     const id:number = Number(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -29,7 +30,8 @@ export class FrutaEdit {
     this.frutaApi.GetById(id).subscribe({
       next: (fruta: FrutaModel) => {
         this.fruta = fruta;
-        console.log(fruta);
+        this.dataVencFormatada = this.formatDateForInput(fruta.DataVenc);
+        //console.log(fruta);
       },
       error: (erro) => {
         console.error(`Error ${erro} ao buscar fruta - contate o suporte técnico.`);
@@ -39,6 +41,7 @@ export class FrutaEdit {
   }  
 
   Update() {
+    this.fruta.DataVenc = new Date(this.dataVencFormatada);
     this.frutaApi.Update(this.fruta).subscribe({
       next: (fruta: FrutaModel) => {
         alert(`Fruta ${fruta.Nome} atualizada com sucesso!`);
@@ -52,5 +55,13 @@ export class FrutaEdit {
 
   GoToIndex() {
     this.router.navigate(['/frutas']);
+  }
+
+  formatDateForInput(date: string | Date){
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}/${month}/${day}`;
   }
 }

@@ -41,7 +41,15 @@ export class FrutaIndex {
     this.frutaApi.GetById(id).subscribe({
       next: (fruta: FrutaModel) => {
         this.frutas = [fruta];
-      }
+      },
+      error: (erro) => {
+        if (erro.status === 404) {
+          alert(`Fruta com ID : "${id}" não encontrada.`);
+        }
+        else {
+        console.error(`Error ${erro} ao buscar fruta - contate o suporte técnico.`);
+        }
+      }  
     })
   }
 
@@ -49,7 +57,15 @@ export class FrutaIndex {
     this.frutaApi.GetByName(nome).subscribe({
       next: (frutas:FrutaModel[]) => {
         this.frutas = frutas;
-      }
+      },
+      error: (erro) => {
+        if (erro.status === 404) {
+          alert(`Nenhuma fruta com Nome : "${nome}" encontrada.`);
+        }
+        else {
+        console.error(`Error ${erro} ao buscar fruta - contate o suporte técnico.`);
+        }
+      }  
     });
   }
 
