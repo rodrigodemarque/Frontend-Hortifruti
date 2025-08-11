@@ -3,7 +3,8 @@ import { Home } from './pages/home/home';
 import { FrutaIndex } from './pages/fruta/fruta-index/fruta-index';
 import { FrutaCreate } from './pages/fruta/fruta-create/fruta-create';
 import { FrutaEdit } from './pages/fruta/fruta-edit/fruta-edit';
-import { Message404 } from './messages/message-404/message-404';
+import { Message404 } from './pages/messages/message-404/message-404';
+
 
 export const routes: Routes = [
     {path:'', redirectTo:'home', pathMatch: 'full'},
